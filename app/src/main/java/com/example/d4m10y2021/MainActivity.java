@@ -58,4 +58,11 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         redPlayer =0;
         startActivity(si);
     }
+
+    protected void activityResult(int source, int good,Intent data_back){
+        if (data_back != null) {
+            redPlayer = data_back.getIntExtra("newScore",0);
+            bluePlayer = data_back.getIntExtra("newScore",0);
+        }
+    }
 }

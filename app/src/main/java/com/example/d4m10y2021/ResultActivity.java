@@ -12,6 +12,7 @@ public class ResultActivity extends AppCompatActivity {
     TextView tv,tv2;
     String massage;
     String winnerName;
+    Intent gi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +21,7 @@ public class ResultActivity extends AppCompatActivity {
         tv2= (TextView) findViewById(R.id.textView2);
 
 
-        Intent gi = getIntent();
+        gi = getIntent();
         int player1 = gi.getIntExtra("player1",0);
         int player2 = gi.getIntExtra("player2",0);
         int winner = gi.getIntExtra("winner",0);
@@ -47,6 +48,8 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void return1(View view) {
+        gi.putExtra("newScore",0);
+        setResult(RESULT_OK,gi);
         finish();
     }
 }
